@@ -1,7 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+
 import { Request, Response } from 'express';
+
+var fs = require('fs');
+import {requireAuth} from "../../udacity-c2-restapi/src/controllers/v0/users/routes/auth.router";
+
 
 (async () => {
 
@@ -13,6 +18,7 @@ import { Request, Response } from 'express';
   
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
+
 
   app.get('/filteredimage', async (req: Request, res: Response) => {
     //const caption = req.body.caption;
@@ -32,10 +38,6 @@ import { Request, Response } from 'express';
     await deleteLocalFiles(files);
   } );
 
-
-  /**************************************************************************** */
-
-  //! END @TODO1
   
   // Root Endpoint
   // Displays a simple message to the user
