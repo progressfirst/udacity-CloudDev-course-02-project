@@ -1,8 +1,12 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+
+import { Request, Response } from 'express';
+
 var fs = require('fs');
 import {requireAuth} from "../../udacity-c2-restapi/src/controllers/v0/users/routes/auth.router";
+
 
 (async () => {
 
@@ -16,9 +20,9 @@ import {requireAuth} from "../../udacity-c2-restapi/src/controllers/v0/users/rou
   app.use(bodyParser.json());
 
 
-  app.get('/filteredimage', async ( req, res ) => {
+  app.get('/filteredimage', async (req: Request, res: Response) => {
     //const caption = req.body.caption;
-    const image_url = req.query.image_url;
+    const image_url: string  = req.query.image_url;
     if (!image_url) {
       res.status(400).send("Got no image_url !")
     }
@@ -33,6 +37,7 @@ import {requireAuth} from "../../udacity-c2-restapi/src/controllers/v0/users/rou
     files.join(file);
     await deleteLocalFiles(files);
   } );
+
   
   // Root Endpoint
   // Displays a simple message to the user

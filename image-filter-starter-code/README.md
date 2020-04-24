@@ -46,3 +46,12 @@ Prevent requests without valid authentication headers.
 
 Add your own domain name and have it point to the running services (try adding a subdomain name to point to the processing server)
 > !NOTE: Domain names are not included in AWS’ free tier and will incur a cost.
+
+
+# Notes
+All project code is stored in a GitHub repository and this link has been submitted for review. There are at least two branches - one for development (dev, development) and one master. Master should contain the most up-to-date, stable code at the time of submission.
+- Master: https://github.com/progressfirst/udacity-CloudDev-course-02-project/tree/master/image-filter-starter-code
+- Dev: https://github.com/progressfirst/udacity-CloudDev-course-02-project/tree/dev/image-filter-starter-code
+
+An endpoint URL for a running elastic beanstalk deployment (EB_URL) has been submitted along with the project submission. This endpoint responds to valid GET requests including:
+- http://image-filter-starter-code-dev.eu-central-1.elasticbeanstalk.com/filteredimage?image_url=https://images-na.ssl-images-amazon.com/images/I/41ohjdIIESL._AC_.jpg
