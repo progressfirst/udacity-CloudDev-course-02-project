@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { Request, Response } from 'express';
 
 (async () => {
 
@@ -13,9 +14,9 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
-  app.get('/filteredimage', async ( req, res ) => {
+  app.get('/filteredimage', async (req: Request, res: Response) => {
     //const caption = req.body.caption;
-    const image_url = req.query.image_url;
+    const image_url: string  = req.query.image_url;
     if (!image_url) {
       res.status(400).send("Got no image_url !")
     }
